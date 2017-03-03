@@ -1,0 +1,22 @@
+{
+  "name": "onlylocalfood-api",
+  "version": "1.0.0",
+  "description": "API for Only Local Foods website",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devontaylor0891/onlylocalfood-api.git"
+  },
+  "author": "Nikki St Onge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devontaylor0891/onlylocalfood-api/issues"
+  },
+  "homepage": "https://github.com/devontaylor0891/onlylocalfood-api#readme",
+  "dependencies": {
+    "express": "^4.15.0"
+  }
+}
