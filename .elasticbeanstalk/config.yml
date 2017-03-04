@@ -1,6 +1,6 @@
 branch-defaults:
   set-up:
-    environment: help
+    environment: onlylocalfood-api
     group_suffix: null
 environment-defaults:
   help:
