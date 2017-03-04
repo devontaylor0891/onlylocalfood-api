@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var routes = require('./routes');
-var hike = require('../src/handlers/tests');
+var hike = require('./src/handlers/tests');
 
 app.use('/api', routes);
 app.get('/hikes', hike.index);
