@@ -2,6 +2,10 @@ branch-defaults:
   set-up:
     environment: help
     group_suffix: null
+environment-defaults:
+  help:
+    branch: null
+    repository: null
 global:
   application_name: onlylocalfood-api
   branch: null
