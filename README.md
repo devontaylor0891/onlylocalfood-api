@@ -5,7 +5,7 @@
 ### Setup
 First clone this project:
 ```
-git clone git@github.com:devontaylor0891/onlylocalfood-api.git
+git clone https://github.com/devontaylor0891/onlylocalfood-api.git
 cd onlylocalfood-api
 ```
 Then download all dependencies with
