@@ -70,6 +70,8 @@ GET /producers/{id}/products/{id}/old
 
 GET /category
 
+
+GET /products
 GET /product/{id}
 
 
