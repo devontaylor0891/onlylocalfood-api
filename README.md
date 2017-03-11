@@ -46,3 +46,37 @@ $ git commit -m "I've changed something"
 $ eb deploy
 ```
 should be live at [http://onlylocalfoods-api.39mpginjms.us-west-2.elasticbeanstalk.com/api/](http://onlylocalfoods-api.39mpginjms.us-west-2.elasticbeanstalk.com/api/).
+
+
+### Possible Endpoints
+
+GET /users
+POST /users
+GET /users/{id}
+
+
+GET /users/{id}/orders
+GET /users/{id}/orders/{id}
+POST /users/{id}/orders   BODY: array of products (object with id and qty)
+
+
+GET /producers/{id}
+PATCH /producers/{id}
+GET /producers/{id}/products
+POST /producers/{id}/products
+GET /producers/{id}/products/{id}
+GET /producers/{id}/products/{id}/old
+
+
+GET /category
+
+
+GET /products
+GET /product/{id}
+
+
+
+GET /producers/{id}/schedules
+POST /producers/{id}/schedules
+DELETE /producers/{id}/schedules/{id}
+PATCH /producer/{id}/schedules/{id}
