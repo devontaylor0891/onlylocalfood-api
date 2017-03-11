@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  get_category: function(req, res) {
+  get_categories: function(req, res) {
     return res.json({});
   },
 };

@@ -1,5 +1,5 @@
 branch-defaults:
-  set-up:
+  master:
     environment: onlylocalfoods-api
     group_suffix: null
 environment-defaults:

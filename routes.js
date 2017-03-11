@@ -1,6 +1,6 @@
 var users = require('./src/handlers/users');
 var producers = require('./src/handlers/producers');
-var category = require('./src/handlers/category');
+var categories = require('./src/handlers/categories');
 var products = require('./src/handlers/products');
 var express = require('express');
 
@@ -23,7 +23,7 @@ router.route('/producers/{id}/schedules/{id}').delete(producers.delete_producer_
 router.route('/producers/{id}/schedules/{id}').patch(producers.patch_producer_id_schedules_id);
 
 
-router.route('/category').get(category.get_category);
+router.route('/categories').get(categories.get_categories);
 
 
 router.route('/products').get(products.get_products);
