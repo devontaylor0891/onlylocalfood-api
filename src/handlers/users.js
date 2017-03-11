@@ -3,7 +3,18 @@
 module.exports = {
 
   getUsers: function(req, res) {
-    return res.json({'foo': 'bar'});
+    return res.json({
+		title: 'Your Dashboard',
+		orders: [
+			{
+				firstName: 'Bob',
+				city: 'Moosomin'
+			}, {
+				firstName: 'Betty',
+				city: 'Wapella'
+			}
+		]
+	});
   },
 
   postUsers: function(req, res) {
