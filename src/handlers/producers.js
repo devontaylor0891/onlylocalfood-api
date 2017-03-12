@@ -2,6 +2,8 @@
 
 module.exports = {
   get_producer_id: function(req, res) {
+    console.log(req.params.id);
+    var producerId = req.params.id;
     return res.json({});
   },
 
