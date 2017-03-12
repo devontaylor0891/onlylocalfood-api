@@ -154,6 +154,8 @@ module.exports = {
   },
 
   get_users_id: function(req, res) {
+    console.log(req.params.id);
+    var userId = req.params.id;
     return res.json({
   		title: 'Producer Name',
   		producerName: 'Garden Farms',
@@ -229,6 +231,8 @@ module.exports = {
   },
 
   get_users_id_orders: function(req, res) {
+    console.log(req.params.id);
+    var userId = req.params.id;
     return res.json({});
   },
 
@@ -237,6 +241,8 @@ module.exports = {
   },
 
   post_users_id_orders: function(req, res) {
+    console.log(req.params.id);
+    var userId = req.params.id;
     return res.send(201);
   },
 

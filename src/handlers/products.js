@@ -13,6 +13,8 @@ module.exports = {
   },
 
   patch_products_id: function(req, res) {
+    console.log(req.params.id);
+    var productId = req.params.id;
     return res.send(201);
   },
 
