@@ -11,7 +11,7 @@ router.route('/users').post(users.post_users);
 router.route('/users/{id}').get(users.get_users_id);
 
 
-router.route('/producers/{id}').get(producers.get_producer_id);
+router.route('/producers/:id').get(producers.get_producer_id);
 router.route('/producers/{id}').patch(producers.patch_producer_id);
 router.route('/producers/{id}/products').get(producers.get_producer_id_products);
 router.route('/producers/{id}/products').post(producers.post_producer_id_products);
