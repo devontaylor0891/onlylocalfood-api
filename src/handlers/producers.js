@@ -4,6 +4,7 @@ module.exports = {
   get_producer_id: function(req, res) {
     console.log(req.params.id);
     var producerId = req.params.id;
+
     return res.json({});
   },
 
@@ -13,23 +14,13 @@ module.exports = {
     return res.send(201);
   },
 
-  get_producer_id_products: function(req, res) {
-    console.log(req.params.id);
-    var producerId = req.params.id;
-    return res.json({});
-  },
-
   post_producer_id_products: function(req, res) {
     console.log(req.params.id);
     var producerId = req.params.id;
     return res.send(201);
   },
 
-  get_producer_id_products_id: function(req, res) {
-    return res.json({});
-  },
-
-  get_producer_id_products_id_old: function(req, res) {
+  get_producer_id_old_products: function(req, res) {
     return res.json({});
   },
 
@@ -40,15 +31,5 @@ module.exports = {
   post_producer_id_schedules: function(req, res) {
     return res.send(201);
   },
-
-  delete_producer_id_schedules_id: function(req, res) {
-    return res.send(202);
-  },
-
-  patch_producer_id_schedules_id: function(req, res) {
-    return res.send(201);
-  },
-
-
 
 };
