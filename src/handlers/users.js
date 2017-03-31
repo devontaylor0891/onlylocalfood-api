@@ -151,6 +151,7 @@ module.exports = {
 
   post_users: function(req, res) {
     return res.send(201);
+    
   },
 
   get_users_id: function(req, res) {
@@ -233,10 +234,6 @@ module.exports = {
   get_users_id_orders: function(req, res) {
     console.log(req.params.id);
     var userId = req.params.id;
-    return res.json({});
-  },
-
-  get_users_id_orders_id: function(req, res) {
     return res.json({});
   },
 
