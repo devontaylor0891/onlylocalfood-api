@@ -9,7 +9,9 @@ var get_response = [
     location: 'Moosomin',
     startTime: '12 pm',
     endTime: '2 pm',
-    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
+    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+	fee: 10,
+	feeWaiver: 45
   }, {
     id: 2,
     type: 'Off-farm Pickup',
@@ -17,6 +19,8 @@ var get_response = [
     location: 'Moosomin',
     startTime: '12 pm',
     endTime: '2 pm',
-    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
+    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+	fee: null,
+	feeWaiver: null
   }
 ];
