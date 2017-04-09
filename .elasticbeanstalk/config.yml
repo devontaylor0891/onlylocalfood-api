@@ -3,9 +3,6 @@ branch-defaults:
     environment: onlylocalfood-api
     group_suffix: null
 environment-defaults:
-  help:
-    branch: null
-    repository: null
   onlylocalfood-api:
     branch: null
     repository: null
