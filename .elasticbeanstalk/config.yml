@@ -1,13 +1,16 @@
 branch-defaults:
   master:
-    environment: onlylocalfoods-api
+    environment: onlylocalfood-api
     group_suffix: null
 environment-defaults:
   help:
     branch: null
     repository: null
+  onlylocalfood-api:
+    branch: null
+    repository: null
 global:
-  application_name: onlylocalfood-api
+  application_name: onlylocalfood
   branch: null
   default_ec2_keyname: null
   default_platform: node.js
