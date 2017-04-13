@@ -1,7 +1,11 @@
 //this is how the /users/{id} response will look.
 
-//take this out if not correct or modify
 var get_response = {
-  firstName: 'Devon',
-  email: 'devon@mail.com',
+	id: '123456',
+	firstName: 'Devon',
+	email: 'devon@email.com',
+	creationDate: 'Jan 1, 2017',
+	status: 'active',
+	userType: 'consumer',
+	userPass: 'xxxx'
 };
