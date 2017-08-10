@@ -1,4 +1,5 @@
-//this is how the /users/{id} response will look.
+// this is how the /users/{id} response will look.
+// lower priority but still a priority
 
 var get_response = {
 	id: '123456',

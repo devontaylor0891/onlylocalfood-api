@@ -1,4 +1,6 @@
 //this is how the /orders response will look.
+// for admin dashboard
+// low-priotrity
 
 var get_response = [
 	{

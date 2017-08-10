@@ -1,4 +1,7 @@
 //this is how the /schedules/{id} response will look.
+// lower-priority because we dont know where we will use it yet
+
+// #2
 
 var get_response =   {
     schedulesId: 1,

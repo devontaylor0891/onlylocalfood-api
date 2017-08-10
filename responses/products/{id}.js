@@ -1,4 +1,12 @@
 //this is how the /products/{id} response will look.
+// could add schedule here (the top 4 schedules that that producer has WITH that product in it)
+// OR Devon will use schedules?prodcutId=14
+
+//I decide
+
+// these don't care about location but are the first 4 delivers of this product
+
+// #1
 
 var get_response = {
   productId: 1,
@@ -13,5 +21,7 @@ var get_response = {
   qtyAvailable: '15',
   qtyPending: '3',
   qtySold: '55',
-  productStatus: 'active'
+  productStatus: 'active',
+  producerId: 13,
+  producerName: 'name',
 };

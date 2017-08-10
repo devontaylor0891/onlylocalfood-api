@@ -1,5 +1,6 @@
 //this is how the /schedules response will look.
 
+
 var get_response = [
   {
     schedulesId: 1,
@@ -9,9 +10,9 @@ var get_response = [
     startTime: '12 pm',
     endTime: '2 pm',
     schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-	DeliveryFee: '10',
-	DeliveryFeeWaiver: '45',
-	producerName: 'Garden Farms'
+    DeliveryFee: '10',
+    DeliveryFeeWaiver: '45',
+    producerName: 'Garden Farms'
  }, {
     schedulesId: 2,
     schedulesType: 'Off-farm Pickup',
@@ -20,9 +21,9 @@ var get_response = [
     startTime: '12 pm',
     endTime: '2 pm',
     schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-	DeliveryFee: null,
-	DeliveryFeeWaiver: null,
-	producerName: 'Other Farms'
+    DeliveryFee: null,
+    DeliveryFeeWaiver: null,
+    producerName: 'Other Farms'
   }, {
     schedulesId: 6,
     schedulesType: 'Off-farm Pickup',
@@ -31,9 +32,9 @@ var get_response = [
     startTime: '1 pm',
     endTime: '2 pm',
     schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-	DeliveryFee: null,
-	DeliveryFeeWaiver: null,
-	producerName: 'Other Farms'
+    DeliveryFee: null,
+    DeliveryFeeWaiver: null,
+    producerName: 'Other Farms'
   }, {
     schedulesId: 5,
     schedulesType: 'Schedule Farmgate Pickup',
@@ -42,8 +43,8 @@ var get_response = [
     startTime: '1 pm',
     endTime: '2 pm',
     schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-	DeliveryFee: null,
-	DeliveryFeeWaiver: null,
-	producerName: 'Other Farms'
+    DeliveryFee: null,
+    DeliveryFeeWaiver: null,
+    producerName: 'Other Farms'
   }
 ];

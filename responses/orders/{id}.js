@@ -1,4 +1,5 @@
-//this is how the /orders/{id} response will look.
+// this is how the /orders/{id} response will look.
+// obsolete, using /users/{id}/orders
 
 var get_response = {
 	orderID: 123456,
