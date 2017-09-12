@@ -11,6 +11,7 @@ router.route('/users').get(users.get_users);
 router.route('/users').post(users.post_users);
 router.route('/users/:id').get(users.get_users_id);
 
+router.route('/producers').get(producers.get_producers);
 router.route('/producers/:id').get(producers.get_producers_id); // will have products in it and have schedules
 router.route('/producers/:id').patch(producers.patch_producer_id);
 router.route('/producers/:id/products').post(producers.post_producer_id_products);
