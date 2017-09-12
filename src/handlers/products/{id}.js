@@ -42,6 +42,7 @@ module.exports = {
         producerId: results[0].producer_id,
         producerName: results[0].producer_name,
       };
+      res.status(200).send(product);
     });
   },
 };

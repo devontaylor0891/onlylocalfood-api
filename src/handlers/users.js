@@ -1,4 +1,5 @@
 'use strict';
+var User = require('./users/{id}');
 
 module.exports = {
   get_users: function(req, res) {
@@ -155,9 +156,8 @@ module.exports = {
   },
 
   get_users_id: function(req, res) {
-    console.log(req.params.id);
-    var userId = req.params.id;
-    return res.json({
+    User.get_users_id(req, res);
+  /*  return res.json({
   		title: 'Producer Name',
   		producerName: 'Garden Farms',
   		image: '/images/product.jpg',
@@ -228,7 +228,7 @@ module.exports = {
   				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
   			}
   		]
-  	});
+  	});*/
   },
 
   get_users_id_orders: function(req, res) {
