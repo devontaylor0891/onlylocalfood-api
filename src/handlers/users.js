@@ -1,8 +1,29 @@
 'use strict';
+var connection = require('../../db');
 var User = require('./users/{id}');
 
 module.exports = {
   get_users: function(req, res) {
+    connection.query(`SELECT * FROM users`, function (error, results) {
+      if (results.length === 0) {
+        res.status(404).send({ message: "Users not found"});
+        return;
+      }
+      console.log("results 1:", results);
+      var users = results.map(function(row) {
+        return {
+          id: row.id,
+          firstName: row.first_name,
+          email: row.email,
+          creationDate: row.registration_date,
+          status: 'active',
+          userType: 'consumer',
+          userPass: row.password
+        }
+      });
+      res.status(200).send(users);
+	});
+/*
     return res.json([
       {
     		title: 'Producer Name1',
@@ -147,7 +168,7 @@ module.exports = {
     			}
     		]
     	}
-    ]);
+    ]);*/
   },
 
   post_users: function(req, res) {

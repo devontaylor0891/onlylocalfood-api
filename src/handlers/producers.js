@@ -11,7 +11,7 @@ module.exports = {
         return;
       }
       console.log("results 1:", results);
-      var products = results.map(function(row) {
+      var producers = results.map(function(row) {
         return {
           producerId: row.id,
           producerName: row.name,
@@ -22,7 +22,7 @@ module.exports = {
           producerDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }
       });
-      res.status(200).send(products);
+      res.status(200).send(producers);
     });
   },
 
