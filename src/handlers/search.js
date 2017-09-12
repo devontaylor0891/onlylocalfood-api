@@ -84,7 +84,7 @@ module.exports = {
     return res.send(201);
   },
 
-  get_producer_id_old_products: function(req, res) {
+  get_producers_id_old_products: function(req, res) {
     return res.json({});
   },
 
@@ -92,7 +92,7 @@ module.exports = {
     return res.json({});
   },
 
-  post_producer_id_schedules: function(req, res) {
+  post_producers_id_schedules: function(req, res) {
     return res.send(201);
   },
 

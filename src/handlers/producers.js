@@ -1,9 +1,9 @@
 'use strict';
-var producerId = require('./producers/{id}');
+var Producer = require('./producers/{id}');
 
 module.exports = {
-  get_producer_id: function(req, res) {
-		producerId.get_producer_id(req, res);
+  get_producers_id: function(req, res) {
+		Producer.get_producers_id(req, res);
   },
 
   patch_producer_id: function(req, res) {
@@ -18,7 +18,7 @@ module.exports = {
     return res.send(201);
   },
 
-  get_producer_id_old_products: function(req, res) {
+  get_producers_id_old_products: function(req, res) {
     return res.json({});
   },
 
@@ -26,7 +26,7 @@ module.exports = {
     return res.json({});
   },
 
-  post_producer_id_schedules: function(req, res) {
+  post_producers_id_schedules: function(req, res) {
     return res.send(201);
   },
 

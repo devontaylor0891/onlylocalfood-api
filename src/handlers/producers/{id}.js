@@ -2,7 +2,7 @@
 var connection = require('../../../db');
 
 module.exports = {
-  get_producer_id: function(req, res) {
+  get_producers_id: function(req, res) {
     var producerId = req.params.id;
     console.log("producerId", producerId);
 

@@ -31,5 +31,20 @@ app.listen(8081, function () {
     console.log(results);
   });
 
-  connection.end();*/
+  connection.end();
+  
+  
+  a product has one producer
+
+a product can have many deliver types/times
+
+a deliver can have mutilple products
+  
+  
+  
+  
+  
+  
+  
+  */
 });
