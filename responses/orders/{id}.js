@@ -1,6 +1,23 @@
 // this is how the /orders/{id} response will look.
 // obsolete, using /users/{id}/orders
 
+// if we were to use this endpoint here is the query
+/*
+connection.query(
+	`SELECT o.*,
+	pr.id AS product_name,
+	d.name AS delivery_name,
+	u.id AS user_name
+	FROM orders o
+		LEFT JOIN products pr
+		ON o.product_id = pr.id
+		LEFT JOIN delivery d
+		ON o.delivery_id = d.id
+		LEFT JOIN users u
+		ON o.user_id = u.id
+	WHERE o.id = ${orderId}`,
+*/
+
 var get_response = {
 	orderID: 123456,
 	userId: 1,

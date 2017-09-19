@@ -10,6 +10,9 @@ var router = express.Router();
 router.route('/users').get(users.get_users);
 router.route('/users').post(users.post_users);
 router.route('/users/:id').get(users.get_users_id);
+router.route('/users/:id/orders').get(users.get_users_id_orders);
+// BODY: array of products (object with id and qty)
+router.route('/users/:id/orders').post(users.post_users_id_orders);
 
 router.route('/producers').get(producers.get_producers);
 router.route('/producers/:id').get(producers.get_producers_id); // will have products in it and have schedules
@@ -26,10 +29,6 @@ router.route('/categories').get(categories.get_categories);
 router.route('/products').get(products.get_products);
 router.route('/products/:id').get(products.get_products_id); // will have producer's info
 router.route('/products/:id').patch(products.patch_products_id);
-
-router.route('/users/:id/orders').get(users.get_users_id_orders);
-// BODY: array of products (object with id and qty)
-router.route('/users/:id/orders').post(users.post_users_id_orders);
 
 
 module.exports = router;
