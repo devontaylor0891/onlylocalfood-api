@@ -1,50 +1,25 @@
-//this is how the /schedules response will look.
-
+//this is how the /producers/{id}/schedules response will look.
 
 var get_response = [
   {
-    schedulesId: 1,
-    schedulesType: 'Door-to-door Delivery',
-    schedulesDate: 'July 3',
-    schedulesLocation: 'Moosomin',
+    id: 1,
+    type: 'Door-to-door Delivery',
+    date: 'July 3',
+    location: 'Moosomin',
     startTime: '12 pm',
     endTime: '2 pm',
-    schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    DeliveryFee: '10',
-    DeliveryFeeWaiver: '45',
-    producerName: 'Garden Farms'
+    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+	fee: '10',
+	feeWaiver: '45',
  }, {
-    schedulesId: 2,
-    schedulesType: 'Off-farm Pickup',
-    schedulesDate: 'July 5',
-    schedulesLocation: 'Moosomin',
+    id: 2,
+    type: 'Off-farm Pickup',
+    date: 'July 5',
+    location: 'Moosomin',
     startTime: '12 pm',
     endTime: '2 pm',
-    schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    DeliveryFee: null,
-    DeliveryFeeWaiver: null,
-    producerName: 'Other Farms'
-  }, {
-    schedulesId: 6,
-    schedulesType: 'Off-farm Pickup',
-    schedulesDate: 'July 6',
-    schedulesLocation: 'Wapella',
-    startTime: '1 pm',
-    endTime: '2 pm',
-    schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    DeliveryFee: null,
-    DeliveryFeeWaiver: null,
-    producerName: 'Other Farms'
-  }, {
-    schedulesId: 5,
-    schedulesType: 'Schedule Farmgate Pickup',
-    schedulesDate: 'July 13',
-    schedulesLocation: 'Virden',
-    startTime: '1 pm',
-    endTime: '2 pm',
-    schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-    DeliveryFee: null,
-    DeliveryFeeWaiver: null,
-    producerName: 'Other Farms'
+    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+	fee: null,
+	feeWaiver: null
   }
 ];

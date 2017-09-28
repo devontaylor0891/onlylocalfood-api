@@ -1,82 +1,91 @@
 //this is how the /producers/{id} response will look.
 /*
+
 var get_response = 
   {
-    producerId: '123456',
-    producerName: 'Garden Farms1',
-    producerLogo: '/images/product.jpg',
-    producerLocation: 'Moosomin',
-    producerEmail: 'garden@farms.com',
-    producerPhone: '3065555555',
-    producerDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    // return ALL prodcuts even expired
-    producerProducts: [
+    id: '123456',
+    name: 'Garden Farms1',
+    logo: '/images/product.jpg',
+    city: 'Moosomin',
+    email: 'garden@farms.com',
+    phone: '3065555555',
+    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+// return ALL products even expried
+    products: [
       {
-        productId: 1,
-        productName: 'Product1',
-        productImage: '/images/product.jpg',
-        productPrice: '4.99',
-        productUnit: 'lb',
-        productUnitsPer: '1',
-        productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        productCategory: 'Meat',
-        productSubcategory: 'Beef',
-        qtyAvailable: '15',
-        qtyPending: '3',
-        qtySold: '55',
-        productStatus: 'active'
+        id: 1,
+        name: 'Product1',
+        image: '/images/product.jpg',
+        price: '4.99',
+        unit: 'lb',
+        unitsPer: '1',
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
       }, {
-        productId: 2,
-        productName: 'Product2',
-        productImage: '/images/product.jpg',
-        productPrice: 'XX.xx',
-        productUnit: 'unit',
-        productUnitsPer: '1',
-        productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        productCategory: 'Meat',
-        productSubcategory: 'Beef',
-        qtyAvailable: '15',
-        qtyPending: '3',
-        qtySold: '55',
-        productStatus: 'active'
+        id: 2,
+        name: 'Product2',
+        image: '/images/product.jpg',
+        price: 'XX.xx',
+        unit: 'unit',
+        unitsPer: '1',
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
       }, {
-        productId: 3,
-        productName: 'Product3',
-        productImage: '/images/product.jpg',
-        productPrice: 'XX.xx',
-        productUnit: 'unit',
-        productUnitsPer: '1',
-        productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        productCategory: 'Meat',
-        productSubcategory: 'Beef',
-        qtyAvailable: '15',
-        qtyPending: '3',
-        qtySold: '55',
-        productStatus: 'active'
+        id: 3,
+        name: 'Product3',
+        image: '/images/product.jpg',
+        price: 'XX.xx',
+        unit: 'unit',
+        unitsPer: '1',
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      }, {
+        id: 4,
+        name: 'Product4',
+        image: '/images/product.jpg',
+        price: 'XX.xx',
+        unit: 'unit',
+        unitsPer: '1',
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      }, {
+        id: 5,
+        name: 'Product5',
+        image: '/images/product.jpg',
+        price: 'XX.xx',
+        unit: 'unit',
+        unitsPer: '1',
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      }, {
+        id: 6,
+        name: 'Product6',
+        image: '/images/product.jpg',
+        price: 'XX.xx',
+        unit: 'unit',
+        unitsPer: '1',
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
       }
     ],
-    // from today onwards
-    producerSchedule: [
+    deliveries: [
       {
-        scheduleId: 1,
-        scheduleType: 'Door-to-door Delivery',
-        scheduleDate: 'July 3',
-        scheduleLocation: 'Moosomin',
+        id: 1,
+        type: 'Door-to-door Delivery',
+        date: 'July 3',
+        location: 'Moosomin',
         startTime: '12 pm',
         endTime: '2 pm',
-        scheduleDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-        scheduleFee: 10,
-        scheduleFeeWaiver: 45
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+        fee: 10,
+        feeWaiver: 45
       }, {
-        scheduleId: 2,
-        scheduleType: 'Off-farm Pickup',
-        scheduleDate: 'July 5',
-        scheduleLocation: 'Moosomin',
+        id: 2,
+        type: 'Off-farm Pickup',
+        date: 'July 5',
+        location: 'Moosomin',
         startTime: '12 pm',
         endTime: '2 pm',
         scheduleDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
         scheduleFee: null,
         scheduleFeeWaiver: null
+        description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+        fee: null,
+        feeWaiver: null
       }
     ]
   };

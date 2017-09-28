@@ -2,12 +2,7 @@
 // lower priority but still a priority
 /*
 var get_response = {
-	id: '123456',
-	firstName: 'Devon',
-	email: 'devon@email.com',
-	creationDate: 'Jan 1, 2017',
-	status: 'active',
-	userType: 'consumer',
-	userPass: 'xxxx'
+  firstName: 'Devon',
+  email: 'devon@mail.com',
 };
 */
