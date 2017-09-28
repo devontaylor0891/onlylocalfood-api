@@ -7,7 +7,7 @@
 // these don't care about location but are the first 4 delivers of this product
 
 // #1
-
+/*
 var get_response = {
   productId: 1,
   productName: 'Product1',
@@ -25,3 +25,4 @@ var get_response = {
   producerId: 13,
   producerName: 'name',
 };
+*/

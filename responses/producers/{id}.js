@@ -1,5 +1,5 @@
 //this is how the /producers/{id} response will look.
-
+/*
 var get_response = 
   {
     producerId: '123456',
@@ -9,7 +9,7 @@ var get_response =
     producerEmail: 'garden@farms.com',
     producerPhone: '3065555555',
     producerDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    // return ALL prodcuts even expried
+    // return ALL prodcuts even expired
     producerProducts: [
       {
         productId: 1,
@@ -19,12 +19,12 @@ var get_response =
         productUnit: 'lb',
         productUnitsPer: '1',
         productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      productCategory: 'Meat',
-      productSubcategory: 'Beef',
-      qtyAvailable: '15',
-      qtyPending: '3',
-      qtySold: '55',
-      productStatus: 'active'
+        productCategory: 'Meat',
+        productSubcategory: 'Beef',
+        qtyAvailable: '15',
+        qtyPending: '3',
+        qtySold: '55',
+        productStatus: 'active'
       }, {
         productId: 2,
         productName: 'Product2',
@@ -33,12 +33,12 @@ var get_response =
         productUnit: 'unit',
         productUnitsPer: '1',
         productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      productCategory: 'Meat',
-      productSubcategory: 'Beef',
-      qtyAvailable: '15',
-      qtyPending: '3',
-      qtySold: '55',
-      productStatus: 'active'
+        productCategory: 'Meat',
+        productSubcategory: 'Beef',
+        qtyAvailable: '15',
+        qtyPending: '3',
+        qtySold: '55',
+        productStatus: 'active'
       }, {
         productId: 3,
         productName: 'Product3',
@@ -47,54 +47,12 @@ var get_response =
         productUnit: 'unit',
         productUnitsPer: '1',
         productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      productCategory: 'Meat',
-      productSubcategory: 'Beef',
-      qtyAvailable: '15',
-      qtyPending: '3',
-      qtySold: '55',
-      productStatus: 'active'
-      }, {
-        productId: 4,
-        productName: 'Product4',
-        productImage: '/images/product.jpg',
-        productPrice: 'XX.xx',
-        productUnit: 'unit',
-        productUnitsPer: '1',
-        productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      productCategory: 'Meat',
-      productSubcategory: 'Beef',
-      qtyAvailable: '15',
-      qtyPending: '3',
-      qtySold: '55',
-      productStatus: 'active'
-      }, {
-        productId: 5,
-        productName: 'Product5',
-        productImage: '/images/product.jpg',
-        productPrice: 'XX.xx',
-        productUnit: 'unit',
-        productUnitsPer: '1',
-        productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      productCategory: 'Meat',
-      productSubcategory: 'Beef',
-      qtyAvailable: '15',
-      qtyPending: '3',
-      qtySold: '55',
-      productStatus: 'active'
-      }, {
-        productId: 6,
-        productName: 'Product6',
-        productImage: '/images/product.jpg',
-        productPrice: 'XX.xx',
-        productUnit: 'unit',
-        productUnitsPer: '1',
-        productDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      productCategory: 'Meat',
-      productSubcategory: 'Beef',
-      qtyAvailable: '15',
-      qtyPending: '3',
-      qtySold: '55',
-      productStatus: 'active'
+        productCategory: 'Meat',
+        productSubcategory: 'Beef',
+        qtyAvailable: '15',
+        qtyPending: '3',
+        qtySold: '55',
+        productStatus: 'active'
       }
     ],
     // from today onwards
@@ -122,3 +80,4 @@ var get_response =
       }
     ]
   };
+*/

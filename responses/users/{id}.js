@@ -1,6 +1,6 @@
 // this is how the /users/{id} response will look.
 // lower priority but still a priority
-
+/*
 var get_response = {
 	id: '123456',
 	firstName: 'Devon',
@@ -10,3 +10,4 @@ var get_response = {
 	userType: 'consumer',
 	userPass: 'xxxx'
 };
+*/
