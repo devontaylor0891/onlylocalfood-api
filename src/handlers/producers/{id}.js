@@ -48,7 +48,7 @@ module.exports = {
             return {
               scheduleId: row.id,
               scheduleType: row.type,
-              scheduleDate: 'July 3',
+              scheduleDate: 'October 31',
               scheduleLocation: row.location,
               scheduleLatitude: row.latitude,
               scheduleLongitude: row.longitude,
