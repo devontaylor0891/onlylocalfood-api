@@ -19,7 +19,6 @@ var get_response = {
   qtyAvailable: '15',
   qtyPending: '3',
   qtySold: '55'
-  productStatus: 'active',
   producerId: 1,
   producerName: 'nikki'
 };

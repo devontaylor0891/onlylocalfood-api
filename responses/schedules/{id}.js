@@ -4,14 +4,14 @@
 // #2
 
 var get_response =   {
-    schedulesId: 1,
-    schedulesType: 'Door-to-door Delivery',
-    schedulesDate: 'July 3',
-    schedulesLocation: 'Moosomin',
+    id: 1,
+    type: 'Door-to-door Delivery',
+    date: 'July 3',
+    location: 'Moosomin',
     startTime: '12 pm',
     endTime: '2 pm',
-    schedulesDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-	DeliveryFee: 10,
-	DeliveryFeeWaiver: 45,
+    description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+	fee: 10,
+	feeWaiver: 45,
 	producerName: 'Garden Farms'
 };
