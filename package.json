@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/devontaylor0891/onlylocalfood-api#readme",
   "dependencies": {
-    "express": "^4.15.0"
+    "express": "^4.15.0",
+    "mysql": "^2.13.0",
+    "node-env-file": "^0.1.8"
   }
 }

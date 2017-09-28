@@ -1,6 +1,6 @@
 //this is how the /producers/{id}/old-products response will look.
+// low priority
 
-//take this out if not correct or modify
 var get_response = [
   {
     id: 1,
@@ -70,3 +70,4 @@ var get_response = [
     qtySold: 55
   }
 ];
+

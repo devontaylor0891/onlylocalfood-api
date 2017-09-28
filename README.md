@@ -80,3 +80,12 @@ GET /producers/{id}/schedules
 POST /producers/{id}/schedules
 DELETE /producers/{id}/schedules/{id}
 PATCH /producer/{id}/schedules/{id}
+
+
+# TIPS AND TRICKS
+
+### To upgrade AWS EB CLI
+
+```$ pip install --upgrade --user awsebcli```
+
+The --upgrade option tells pip to upgrade any requirements that are already installed. The --user option tells pip to install the program to a subdirectory of your user directory to avoid modifying libraries used by your operating sytem.

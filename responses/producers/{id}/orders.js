@@ -1,4 +1,8 @@
 //this is how the /producers/{id}/orders response will look.
+
+// low-priority
+// ALL orders, active, pending etc
+
 var get_response = [
   {
     orderID: '123456',

@@ -6,7 +6,7 @@ var get_response = [
     products: [
       {
         productID: 1,
-		quantityOrdered: 3,
+		    quantityOrdered: 3,
         productName: 'Product1',
         image: '/images/product.jpg',
         price: 4.99,

@@ -1,15 +1,45 @@
 'use strict';
+var connection = require('../../db');
+var Product = require('./products/{id}');
 
 module.exports = {
   get_products: function(req, res) {
-    return res.json({
-  		title: 'Producer Name',
-  		producerName: 'Garden Farms',
-  		image: '/images/product.jpg',
-  		location: 'Moosomin',
-  		email: 'garden@farms.com',
-  		description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    connection.query(`
+    SELECT pt.*,
+      c.name AS category_name,
+      sc.name AS subcategory_name
+      FROM products pt
+        LEFT JOIN category c
+          ON pt.category_id = c.id
+        LEFT JOIN subcategory sc
+          ON pt.subcategory_id = sc.id`, function (error, results) {
+      if (results.length === 0) {
+        res.status(404).send({ message: "Products not found"});
+        return;
+      }
+      console.log("results 1:", results);
+      var products = results.map(function(row) {
+        return {
+          id: row.id,
+          productName: row.name,
+          image: row.image,
+          price: row.price,
+          unit: row.unit,
+          unitsPer: '1',
+          description: row.description,
+          category: results[0].category_name,
+          subcategory: results[0].subcategory_name,
+          qtyAvailable: row.quantity_avaliable,
+          qtyPending: row.pending,
+          qtySold: row.completed
+        }
+      });
+      res.status(200).send(products);
     });
+  },
+
+  get_products_id: function(req, res) {
+    Product.get_products_id(req, res);
   },
 
   patch_products_id: function(req, res) {
@@ -17,7 +47,4 @@ module.exports = {
     var productId = req.params.id;
     return res.send(201);
   },
-
-
-
 };

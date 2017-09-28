@@ -1,4 +1,7 @@
-//this is how the /users/{id}/orders response will look.
+//this is how the /orders response will look.
+// for admin dashboard
+// low-priotrity
+
 var get_response = [
   {
     orderID: '123456',

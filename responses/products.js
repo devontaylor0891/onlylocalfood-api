@@ -5,7 +5,6 @@ var get_response = [
   {
     id: 1,
     productName: 'Product1',
-    producerName: 'Garden Farms',
     image: '/images/product.jpg',
     price: 'XX.xx',
     unit: 'unit',

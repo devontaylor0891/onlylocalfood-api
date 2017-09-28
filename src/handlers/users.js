@@ -1,7 +1,27 @@
 'use strict';
+var connection = require('../../db');
+var UserById = require('./users/{id}');
+var UserByIdOrders = require('./users/{id}/orders');
 
 module.exports = {
   get_users: function(req, res) {
+    connection.query(`SELECT * FROM users`, function (error, results) {
+      if (results.length === 0) {
+        res.status(404).send({ message: "Users not found"});
+        return;
+      }
+      console.log("results 1:", results);
+      var users = results.map(function(row) {
+        return {
+          id: row.id,
+          firstName: row.first_name,
+          email: row.email,
+          creationDate: row.registration_date,
+        }
+      });
+      res.status(200).send(users);
+	});
+	/*
     return res.json([
       {
     		title: 'Producer Name1',
@@ -146,18 +166,16 @@ module.exports = {
     			}
     		]
     	}
-    ]);
+    ]);*/
   },
 
   post_users: function(req, res) {
     return res.send(201);
-    
   },
 
   get_users_id: function(req, res) {
-    console.log(req.params.id);
-    var userId = req.params.id;
-    return res.json({
+    UserById.get_users_id(req, res);
+  /*  return res.json({
   		title: 'Producer Name',
   		producerName: 'Garden Farms',
   		image: '/images/product.jpg',
@@ -228,13 +246,11 @@ module.exports = {
   				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
   			}
   		]
-  	});
+  	});*/
   },
 
   get_users_id_orders: function(req, res) {
-    console.log(req.params.id);
-    var userId = req.params.id;
-    return res.json({});
+    UserByIdOrders.get_users_id_orders(req, res);
   },
 
   post_users_id_orders: function(req, res) {

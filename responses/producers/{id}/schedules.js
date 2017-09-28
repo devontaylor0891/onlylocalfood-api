@@ -1,6 +1,7 @@
 //this is how the /producers/{id}/schedules response will look.
 
-//take this out if not correct or modify
+// low-priorty
+// ALL schedules, expired
 var get_response = [
   {
     id: 1,
