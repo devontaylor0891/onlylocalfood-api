@@ -38,7 +38,6 @@ module.exports = {
         qtyAvailable: results[0].avaliable,
         qtyPending: results[0].pending,
         qtySold: results[0].completed,
-        productStatus: 'active',
         producerId: results[0].producer_id,
         producerName: results[0].producer_name,
       };
