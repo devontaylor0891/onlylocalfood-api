@@ -17,9 +17,6 @@ module.exports = {
           firstName: row.first_name,
           email: row.email,
           creationDate: row.registration_date,
-          status: 'active',
-          userType: 'consumer',
-          userPass: row.password
         }
       });
       res.status(200).send(users);

@@ -10,7 +10,7 @@
 /*
 var get_response = {
   id: 1,
-  productName: 'Product1',
+  name: 'Product1',
   image: '/images/product.jpg',
   price: '9.99',
   unit: 'lb',

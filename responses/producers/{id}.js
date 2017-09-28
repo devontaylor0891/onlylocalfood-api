@@ -80,12 +80,9 @@ var get_response =
         location: 'Moosomin',
         startTime: '12 pm',
         endTime: '2 pm',
-        scheduleDescription: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
-        scheduleFee: null,
-        scheduleFeeWaiver: null
         description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
         fee: null,
-        feeWaiver: null
+        feewaiver: null
       }
     ]
   };

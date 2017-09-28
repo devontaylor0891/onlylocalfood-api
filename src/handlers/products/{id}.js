@@ -26,13 +26,13 @@ module.exports = {
       }
       console.log("results 1", results);
       var product = {
-        productId: results[0].id,
-        productName: results[0].name,
-        productImage: results[0].image,
-        productPrice: results[0].price,
-        productUnit: results[0].unit,
-        productUnitsPer: '3',
-        productDescription: results[0].description,
+        id: results[0].id,
+        name: results[0].name,
+        image: results[0].image,
+        price: results[0].price,
+        unit: results[0].unit,
+        unitsPer: '3',
+        description: results[0].description,
         productCategory: results[0].category_name,
         productSubcategory: results[0].subcategory_name,
         qtyAvailable: results[0].avaliable,

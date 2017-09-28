@@ -20,19 +20,18 @@ module.exports = {
       console.log("results 1:", results);
       var products = results.map(function(row) {
         return {
-          productId: row.id,
+          id: row.id,
           productName: row.name,
-          productImage: row.image,
-          productPrice: row.price,
-          productUnit: row.unit,
-          productUnitsPer: '1',
-          productDescription: row.description,
-          productCategory: results[0].category_name,
-          productSubcategory: results[0].subcategory_name,
+          image: row.image,
+          price: row.price,
+          unit: row.unit,
+          unitsPer: '1',
+          description: row.description,
+          category: results[0].category_name,
+          subcategory: results[0].subcategory_name,
           qtyAvailable: row.quantity_avaliable,
           qtyPending: row.pending,
-          qtySold: row.completed,
-          productStatus: 'active'
+          qtySold: row.completed
         }
       });
       res.status(200).send(products);

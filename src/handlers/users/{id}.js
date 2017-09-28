@@ -18,9 +18,6 @@ module.exports = {
         firstName: results[0].first_name,
         email: results[0].email,
         creationDate: results[0].registration_date,
-        status: 'active',
-        userType: 'consumer',
-        userPass: results[0].password,
       };
       res.status(200).send(user);
     });
