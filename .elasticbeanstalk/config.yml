@@ -1,7 +1,7 @@
 branch-defaults:
   master:
     environment: onlylocalfood-api
-  nikki/deploy-connection-to-db:
+  deploy-connection-to-db:
     environment: onlylocalfood-api
 environment-defaults:
   onlylocalfood-api:
