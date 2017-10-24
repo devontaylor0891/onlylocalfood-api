@@ -9,6 +9,7 @@ var connection = mysql.createConnection({
     password: process.env.RDS_PASSWORD,
     database: process.env.RDS_DB_NAME,  
 });
+
 connection.connect(function(err) {
 if (err) {
     console.error('Database connection failed: ' + err.stack);
