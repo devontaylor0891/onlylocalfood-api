@@ -45,7 +45,7 @@ $ git add .
 $ git commit -m "I've changed something"
 $ eb deploy
 ```
-should be live at [http://onlylocalfoods-api.39mpginjms.us-west-2.elasticbeanstalk.com/api/](http://onlylocalfoods-api.39mpginjms.us-west-2.elasticbeanstalk.com/api/).
+should be live at [http://onlylocalfood-api.a3jw4x3uey.us-west-2.elasticbeanstalk.com/api/](http://onlylocalfood-api.a3jw4x3uey.us-west-2.elasticbeanstalk.com/api/).
 
 
 ### Possible Endpoints
