@@ -3,6 +3,7 @@ var producers = require('./src/handlers/producers');
 var categories = require('./src/handlers/categories');
 var products = require('./src/handlers/products');
 var schedules = require('./src/handlers/schedules');
+var search = require('./src/handlers/search');
 var express = require('express');
 
 var router = express.Router();
@@ -29,6 +30,8 @@ router.route('/categories').get(categories.get_categories);
 router.route('/products').get(products.get_products);
 router.route('/products/:id').get(products.get_products_id); // will have producer's info
 router.route('/products/:id').patch(products.patch_products_id);
+
+router.route('/search').get(search.get_search);
 
 
 module.exports = router;
