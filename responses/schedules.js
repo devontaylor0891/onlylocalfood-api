@@ -11,7 +11,7 @@ var get_response = [
     description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
     fee: '10',
     feeWaiver: '45',
- }, {
+  }, {
     id: 2,
     type: 'Off-farm Pickup',
     date: 'July 5',
