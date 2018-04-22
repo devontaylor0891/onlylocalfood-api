@@ -25,8 +25,8 @@ module.exports = {
             ON u.user_id = o.id
         WHERE u.id = ${userId}`,
 */
-    connection.query(
-      `SELECT u.first_name AS user_first_name,
+    connection.query(`
+      SELECT u.first_name AS user_first_name,
         u.email AS user_email,
         o.*
         FROM orders o
