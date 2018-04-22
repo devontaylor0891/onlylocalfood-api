@@ -27,27 +27,79 @@ module.exports = {
               ON pt.category_id = c.id
             LEFT JOIN subcategory sc
               ON pt.subcategory_id = sc.id`, function (error, productResults) {
-                console.log("productResults", productResults);
-        const productGroupedBy = _.groupBy(productResults, 'producer_id');
-        console.log("productz", productGroupedBy);
-        var producers = producerResults.map(function(row) {
-          return {
-            id: row.id,
-            name: row.name,
-            location: row.city,
-            province: "SK",
-            description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            email: row.producer_email,
-            logoURL: '/images/product.jpg',
-            longitude: row.latitude,
-            latitude: row.longitude,
-            firstName: row.producer_first_name,
-            registrationDate: row.producer_registration_date,
-            status: "active",
-            products: productGroupedBy[row.id] || [],
-          };
-        });
-        res.status(200).send(producers);
+        const productGroupedBy = _(productResults)
+          .map(p => {
+            return {
+              producer_id: p.producer_id,
+              id: p.id,
+              name: p.name,
+              description: p.description,
+              image: p.image,
+              pricePerUnit: p.price,
+              unit: p.unit,
+              unitsPer: '1',
+              category: p.category,
+              subcategory: p.subcategory_id,
+              dateAdded: "2017-12-02T01:00:00.000Z",
+              qtyAvailable: p.quantity_avaliable,
+              qtyPending: p.quantity_pending,
+              qtyAccepted: p.quantity_accepted,
+              qtyCompleted: p.quantity_completed,
+              isObsolete: false,
+              scheduleList: [
+                444,
+                445,
+                789
+              ],
+            };;
+          })
+          .groupBy('producer_id')
+          .value();
+
+        connection.query(`
+          SELECT * from delivery`, function (error, scheduleResults) {
+            const scheduleGroupedBy = _(scheduleResults)
+              .map(s => {
+                return {
+                  producer_id: s.producer_id,
+                  id: s.id,
+                  type: s.type,
+                  description: s.details,
+                  startDateTime: s.start_time,
+                  endDateTime: s.end_time,
+                  hasFee: s.delivery_fee,
+                  feeWaiver: s.fee_waiver_value,
+                  latitude: s.latitude,
+                  longitude: s.longitude,
+                  city: s.location,
+                  address: "Hard coded address",
+                  province: "Hard coded province",
+                  orderDeadline: "What is this",
+                };
+              })
+              .groupBy('producer_id')
+              .value();
+              console.log("schedule", scheduleGroupedBy);
+            var producers = producerResults.map(function(row) {
+              return {
+                id: row.id,
+                name: row.name,
+                location: row.city,
+                province: "SK",
+                description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                email: row.producer_email,
+                logoURL: '/images/product.jpg',
+                longitude: row.latitude,
+                latitude: row.longitude,
+                firstName: row.producer_first_name,
+                registrationDate: row.producer_registration_date,
+                status: "active",
+                products: productGroupedBy[row.id] || [],
+                schedule: scheduleGroupedBy[row.id] || [],
+              };
+            });
+            res.status(200).send(producers);
+          });
       });
     });
   },

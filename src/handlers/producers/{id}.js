@@ -58,13 +58,13 @@ module.exports = {
               445,
               789
             ],
-          }
+          };
         });
         producer.products = products;
 
         connection.query(`SELECT * FROM delivery WHERE producer_id = ${producerId}`, function (error, results) {
           console.log("results 3:", results);
-          var deliveries = results.map(function(row) {
+          var schedule = results.map(function(row) {
             return {
               id: row.id,
               type: row.type,
@@ -79,9 +79,9 @@ module.exports = {
               address: "Hard coded address",
               province: "Hard coded province",
               orderDeadline: "What is this"
-            }
+            };
           });
-          producer.deliveries = deliveries;
+          producer.schedule = schedule;
           res.status(200).send(producer);
         });
       });
