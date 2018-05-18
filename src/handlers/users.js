@@ -1,172 +1,41 @@
 'use strict';
+var _ = require('lodash');
 var connection = require('../../db');
 var UserById = require('./users/{id}');
 var UserByIdOrders = require('./users/{id}/orders');
 
 module.exports = {
   get_users: function(req, res) {
-    connection.query(`SELECT * FROM users`, function (error, results) {
-      if (results.length === 0) {
+    connection.query(`
+      SELECT u.*, p.id AS producer_id
+      FROM users AS u
+      LEFT JOIN producers p
+        on p.user_id = u.id`, function (error, usersResult) {
+      if (usersResult.length === 0) {
         res.status(404).send({ message: "Users not found"});
         return;
       }
-      console.log("results 1:", results);
-      var users = results.map(function(row) {
-        return {
-          id: row.id,
-          firstName: row.first_name,
-          email: row.email,
-          creationDate: row.registration_date,
-        }
+      console.log("usersResult 1:", usersResult);
+
+      connection.query(`
+        SELECT * FROM orders`, function (error, ordersResults) {
+        const ordersGroupedBy = _(ordersResults)
+          .groupBy('user_id')
+          .value();
+
+        var users = usersResult.map(function(row) {
+          return {
+            id: row.id,
+            firstName: row.first_name,
+            email: row.email,
+            registrationDate: row.registration_date,
+            role: row.producer_id ? 'producer' : 'consumer',
+            orders: ordersGroupedBy[row.id] || [],
+          }
+        });
+        res.status(200).send(users);
       });
-      res.status(200).send(users);
-	});
-	/*
-    return res.json([
-      {
-    		title: 'Producer Name1',
-    		producerName: 'Garden Farms1',
-    		image: '/images/product.jpg',
-    		location: 'Moosomin',
-    		email: 'garden@farms.com',
-    		description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    		products: [
-    			{
-    				id: 1,
-    				productName: 'Product1',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 2,
-    				productName: 'Product2',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 3,
-    				productName: 'Product3',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 4,
-    				productName: 'Product4',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 5,
-    				productName: 'Product5',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 6,
-    				productName: 'Product6',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}
-    		],
-    		deliveries: [
-    			{
-    				id: 1,
-    				type: 'Door-to-door Delivery',
-    				date: 'July 3',
-    				location: 'Moosomin',
-    				startTime: '12 pm',
-    				endTime: '2 pm',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
-    			}, {
-    				id: 2,
-    				type: 'Off-farm Pickup',
-    				date: 'July 5',
-    				location: 'Moosomin',
-    				startTime: '12 pm',
-    				endTime: '2 pm',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
-    			}
-    		]
-    	}, {
-    		title: 'Producer Name2',
-    		producerName: 'Garden Farms2',
-    		image: '/images/product.jpg',
-    		location: 'Moosomin',
-    		email: 'garden@farms.com',
-    		description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    		products: [
-    			{
-    				id: 1,
-    				productName: 'Product1',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 2,
-    				productName: 'Product2',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 3,
-    				productName: 'Product3',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 4,
-    				productName: 'Product4',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 5,
-    				productName: 'Product5',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}, {
-    				id: 6,
-    				productName: 'Product6',
-    				image: '/images/product.jpg',
-    				price: 'XX.xx',
-    				unit: 'unit',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    			}
-    		],
-    		deliveries: [
-    			{
-    				id: 1,
-    				type: 'Door-to-door Delivery',
-    				date: 'July 3',
-    				location: 'Moosomin',
-    				startTime: '12 pm',
-    				endTime: '2 pm',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
-    			}, {
-    				id: 2,
-    				type: 'Off-farm Pickup',
-    				date: 'July 5',
-    				location: 'Moosomin',
-    				startTime: '12 pm',
-    				endTime: '2 pm',
-    				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
-    			}
-    		]
-    	}
-    ]);*/
+    });
   },
 
   post_users: function(req, res) {
@@ -175,78 +44,7 @@ module.exports = {
 
   get_users_id: function(req, res) {
     UserById.get_users_id(req, res);
-  /*  return res.json({
-  		title: 'Producer Name',
-  		producerName: 'Garden Farms',
-  		image: '/images/product.jpg',
-  		location: 'Moosomin',
-  		email: 'garden@farms.com',
-  		description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  		products: [
-  			{
-  				id: 1,
-  				productName: 'Product1',
-  				image: '/images/product.jpg',
-  				price: 'XX.xx',
-  				unit: 'unit',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  			}, {
-  				id: 2,
-  				productName: 'Product2',
-  				image: '/images/product.jpg',
-  				price: 'XX.xx',
-  				unit: 'unit',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  			}, {
-  				id: 3,
-  				productName: 'Product3',
-  				image: '/images/product.jpg',
-  				price: 'XX.xx',
-  				unit: 'unit',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  			}, {
-  				id: 4,
-  				productName: 'Product4',
-  				image: '/images/product.jpg',
-  				price: 'XX.xx',
-  				unit: 'unit',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  			}, {
-  				id: 5,
-  				productName: 'Product5',
-  				image: '/images/product.jpg',
-  				price: 'XX.xx',
-  				unit: 'unit',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  			}, {
-  				id: 6,
-  				productName: 'Product6',
-  				image: '/images/product.jpg',
-  				price: 'XX.xx',
-  				unit: 'unit',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  			}
-  		],
-  		deliveries: [
-  			{
-  				id: 1,
-  				type: 'Door-to-door Delivery',
-  				date: 'July 3',
-  				location: 'Moosomin',
-  				startTime: '12 pm',
-  				endTime: '2 pm',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
-  			}, {
-  				id: 2,
-  				type: 'Off-farm Pickup',
-  				date: 'July 5',
-  				location: 'Moosomin',
-  				startTime: '12 pm',
-  				endTime: '2 pm',
-  				description: 'This is the description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut'
-  			}
-  		]
-  	});*/
+
   },
 
   get_users_id_orders: function(req, res) {
@@ -258,5 +56,4 @@ module.exports = {
     var userId = req.params.id;
     return res.send(201);
   },
-
 };
