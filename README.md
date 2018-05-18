@@ -16,6 +16,9 @@ npm install
 You should download postman too! It is an app that allows you to access API endpoints (formats the json nicely for you).
 
 ### Run the project locally
+
+First grab the env.example and you need to export those variables to your command line by `export RDS_PORT=3306` for example
+
 Terminal:
 ```
 $ npm start
@@ -46,41 +49,46 @@ $ git add .
 $ git commit -m "I've changed something"
 $ eb deploy
 ```
+or obviously commit to a branch and merge to master then `eb deploy`
 should be live at [http://onlylocalfood-api.a3jw4x3uey.us-west-2.elasticbeanstalk.com/api/](http://onlylocalfood-api.a3jw4x3uey.us-west-2.elasticbeanstalk.com/api/).
 
 
 ### Possible Endpoints
 
-GET /users
-POST /users
-GET /users/{id}
+- GET /users
+- POST /users
+- GET /users/{id}
 
+---
 
-GET /users/{id}/orders
-GET /users/{id}/orders/{id}
-POST /users/{id}/orders   BODY: array of products (object with id and qty)
+- GET /users/{id}/orders
+- GET /users/{id}/orders/{id}
+- POST /users/{id}/orders   BODY: array of products (object with id and qty)
 
+---
 
-GET /producers/{id}
-PATCH /producers/{id}
-GET /producers/{id}/products
-POST /producers/{id}/products
-GET /producers/{id}/products/{id}
-GET /producers/{id}/products/{id}/old
+- GET /producers/{id}
+- PATCH /producers/{id}
+- GET /producers/{id}/products
+- POST /producers/{id}/products
+- GET /producers/{id}/products/{id}
+- GET /producers/{id}/products/{id}/old
 
+---
 
-GET /category
+- GET /category
 
+---
 
-GET /products
-GET /product/{id}
+- GET /products
+- GET /product/{id}
 
+---
 
-
-GET /producers/{id}/schedules
-POST /producers/{id}/schedules
-DELETE /producers/{id}/schedules/{id}
-PATCH /producer/{id}/schedules/{id}
+- GET /producers/{id}/schedules
+- POST /producers/{id}/schedules
+- DELETE /producers/{id}/schedules/{id}
+- PATCH /producer/{id}/schedules/{id}
 
 
 # TIPS AND TRICKS
