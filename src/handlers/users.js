@@ -102,17 +102,22 @@ module.exports = {
     //   });
   // },
   get_users: function(req, res) {
-    connection.query(`
-      SELECT *
-      FROM users`, function (error, usersResult) { // get the users from the db
-      if (usersResult.length === 0) { // error here
-        res.status(404).send({ message: "Users not found"});
-        return;
+    connection.query(
+      `SHOW TABLES`, function(err, result) {
+        console.log('tables: ', result);
       }
-      console.log("usersResult 1:", usersResult);
+    )
+    // connection.query(`
+    //   SELECT *
+    //   FROM users`, function (error, usersResult) { // get the users from the db
+    //   if (usersResult.length === 0) { // error here
+    //     res.status(404).send({ message: "Users not found"});
+    //     return;
+    //   }
+    //   console.log("usersResult 1:", usersResult);
 
       
-    });
+    // });
   },
 
   post_users: function(req, res) {
