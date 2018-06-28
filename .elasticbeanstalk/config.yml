@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: onlylocalfood-api
+    environment: onlylocalfood-test-api
 environment-defaults:
   onlylocalfood-api:
     branch: null
