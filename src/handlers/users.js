@@ -103,7 +103,7 @@ module.exports = {
   // },
   get_users: function(req, res) {
     connection.query(
-      `SHOW TABLES`, function(err, result) {
+      `SHOW TABLES from ebdb`, function(err, result) {
         console.log('tables: ', result);
       }
     )
