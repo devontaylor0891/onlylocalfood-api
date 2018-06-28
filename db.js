@@ -15,9 +15,7 @@ connection.connect(function(err) {
   console.log('Connected to database.');
 });
 
-connection.query('USE DATABASE ebdb;', function (error, results) {
-  console.log('connection results: ', results);
-});
+connection.query('USE DATABASE ebdb;', function (error, results) {});
 
 
 module.exports = connection;
