@@ -103,8 +103,8 @@ module.exports = {
   // },
   get_users: function(req, res) {
     connection.query(`
-      SELECT u.*
-      FROM users AS u`, function (error, usersResult) { // get the users from the db
+      SELECT *
+      FROM users`, function (error, usersResult) { // get the users from the db
       if (usersResult.length === 0) { // error here
         res.status(404).send({ message: "Users not found"});
         return;
