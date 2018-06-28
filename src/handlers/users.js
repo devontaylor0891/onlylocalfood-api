@@ -67,11 +67,12 @@ var UserByIdOrders = require('./users/{id}/orders');
 
 module.exports = {
 
-  // get_users: function (req, res) {
-  //   connection.query('SELECT * FROM users', function (err, result, fields) {
-  //     console.log('error: ', err);
-  //     console.log('users: ', result);
-  //   });
+  get_users: function (req, res) {
+    connection.query('SELECT * FROM users', function (err, result, fields) {
+      console.log('error: ', err);
+      console.log('users: ', result);
+    });
+  },
     // connection.query(`show tables`, function (err, result, fields) {
     //   console.log('error: ', err);
     //   console.log(result);
@@ -101,12 +102,8 @@ module.exports = {
     //   res.status(200).send(users);
     //   });
   // },
-  get_users: function(req, res) {
-    connection.query(
-      `SHOW TABLES from ebdb`, function(err, result) {
-        console.log('tables: ', result);
-      }
-    )
+  // get_users: function(req, res) {
+
     // connection.query(`
     //   SELECT *
     //   FROM users`, function (error, usersResult) { // get the users from the db
