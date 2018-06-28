@@ -70,7 +70,7 @@ module.exports = {
   get_users: function (req, res) {
     connection.query(
       `SELECT *
-      FROM ebdb.users`, function (error, usersResult) {
+      FROM users`, function (error, usersResult) {
         console.log('usersResult1: ', usersResult);
       if (usersResult.length === 0) {
         res.status(404).send({ message: "Users not found"});
