@@ -69,7 +69,7 @@ module.exports = {
 
   get_users: function (req, res) {
     connection.query(
-      `SELECT * FROM ebdb.users`, function (error, usersResult) {
+      `SELECT * FROM users`, function (error, usersResult) {
         if (error) {
           console.log('error: ', error);
         }
