@@ -68,7 +68,7 @@ var UserByIdOrders = require('./users/{id}/orders');
 module.exports = {
 
   get_users: function (req, res) {
-    con.query("SELECT * FROM users", function (err, result, fields) {
+    connection.query("SELECT * FROM users", function (err, result, fields) {
       if (err) throw err;
       console.log(result);
     });
