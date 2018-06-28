@@ -17,5 +17,9 @@ connection.connect(function(err) {
 
 connection.query('USE DATABASE ebdb;', function (error, results) {});
 
+connection.query(`SHOW TABLES`, function(err, results) {
+  console.log('tables: ', results);
+})
+
 
 module.exports = connection;
