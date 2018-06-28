@@ -68,30 +68,34 @@ var UserByIdOrders = require('./users/{id}/orders');
 module.exports = {
 
   get_users: function (req, res) {
-    connection.query(
-      `SELECT * FROM users`, function (error, usersResult) {
-        if (error) {
-          console.log('error: ', error);
-        }
-        console.log('usersResult1: ', usersResult);
-      if (usersResult.length === 0) {
-        res.status(404).send({ message: "Users not found"});
-        return;
-      }
-      console.log('usersResult: ', usersResult);
-      let users = usersResult.map(function(row) {
-        return {
-          id: row.id,
-          firstName: row.first_name,
-          email: row.email,
-          registrationDate: row.registration_date,
-          role: row.role,
-          orders: role.orders,
-          userId: role.user_id
-        }
-      });
-      res.status(200).send(users);
-      });
+    con.query("SELECT * FROM users", function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+    });
+    // connection.query(
+    //   `SELECT * FROM users`, function (error, usersResult) {
+    //     if (error) {
+    //       console.log('error: ', error);
+    //     }
+    //     console.log('usersResult1: ', usersResult);
+    //   if (usersResult.length === 0) {
+    //     res.status(404).send({ message: "Users not found"});
+    //     return;
+    //   }
+    //   console.log('usersResult: ', usersResult);
+    //   let users = usersResult.map(function(row) {
+    //     return {
+    //       id: row.id,
+    //       firstName: row.first_name,
+    //       email: row.email,
+    //       registrationDate: row.registration_date,
+    //       role: row.role,
+    //       orders: role.orders,
+    //       userId: role.user_id
+    //     }
+    //   });
+    //   res.status(200).send(users);
+    //   });
   },
   // get_users: function(req, res) {
   //   connection.query(`
